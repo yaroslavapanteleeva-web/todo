@@ -1,0 +1,48 @@
+.task {
+    min-height: 64px;
+    padding: 20px 24px;
+    border-bottom: 1px solid #E3E4F1;
+}
+
+.task-info {
+    min-height: 50px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: .6fr 1.5fr .8fr;
+    align-items: center;
+    column-gap: 56px;
+    &__count {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: -0.194444px;
+        color: #9495A5;
+    }
+    &__filter {
+       justify-self: end; 
+    }
+    &__btn {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: -0.2px;
+        color: #9495A5;
+        margin-right: 18px;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            color: #494C6B;
+        }
+        &_active {
+            color: #3A7CFD;
+        }
+        &_clear {
+            font-weight: 400;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.btn {
+    width: 26px;
+    height: 26px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &_theme_light {
+        background: url('../assets/img/icon-light.svg') center center/cover no-repeat;
+    }
+}

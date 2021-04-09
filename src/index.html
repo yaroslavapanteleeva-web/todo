@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+</head>
+<body>
+    <main class="main">
+        <div class="main__container">
+            <section class="todo">
+                <div class="todo__header">
+                    <h1 class="todo__heading heading">TODO</h1>
+                    <button class="todo__btn btn btn_theme_light"></button>
+                </div>
+                <div class="todo__body">
+                    <form class="new-todo">
+                        <input type="checkbox" id="task-disabled" class="new-todo__checkbox checkbox" disabled>
+                        <label class="new-todo__label checkbox__label" for="task-disabled"></label>
+                        <input type="text" placeholder="Create a new todo…" class="new-todo__input">
+                    </form>
+                    <div class="todo__tasks">
+                        <div class="task">
+                            <input type="checkbox" id="task-1" class="task__checkbox checkbox">
+                            <label class="task__label checkbox__label" for="task-1">Complete online JavaScript course Complete online JavaScript course</label>
+                        </div>
+                        <div class="task">
+                            <input type="checkbox" id="task-2" class="task__checkbox checkbox">
+                            <label class="task__label checkbox__label" for="task-2">Jog around the park 3x</label>
+                        </div>
+                        <div class="task-info">
+                            <span id="count-task" class="task-info__count">5 items left</span>
+                            <div class="task-info__filter">
+                                <button class="task-info__btn task-info__btn_active">All</button>
+                                <button class="task-info__btn">Active</button>
+                                <button class="task-info__btn">Completed</button>
+                            </div>
+                            <button class="task-info__btn task-info__btn_clear">Clear Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="todo__footer">
+                    Drag and drop to reorder list
+                </div>
+            </section>
+            
+        </div>
+    </main>
+</body>
+</html>

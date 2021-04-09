@@ -1,0 +1,22 @@
+.main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 70px 0 52px;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 300px;
+        background: url('../assets/img/light-theme.png') center center/cover no-repeat;
+    }
+    &__container {
+        position: relative;
+        max-width: 540px;
+        margin: 0 auto;
+        
+    }
+}

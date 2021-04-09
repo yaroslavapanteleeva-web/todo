@@ -1,0 +1,36 @@
+.checkbox {
+    display: none;
+    &__label {
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: -0.25px;
+        color: #494C6B;
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid #E3E4F1;
+            margin-right: 24px;
+            vertical-align: middle;
+            transition: .2s;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        &:hover::before {
+            border-radius: 50%;
+            border-image: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+            border-image-slice: 50% fill;
+        }
+    }
+    &:checked + &__label::before {
+        background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+        border: none;
+        content: url('../assets/img/check.svg');
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
