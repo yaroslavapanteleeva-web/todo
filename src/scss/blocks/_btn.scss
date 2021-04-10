@@ -4,7 +4,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    &_theme_light {
-        background: url('../assets/img/icon-light.svg') center center/cover no-repeat;
+    &_theme {
+        background: var(--btn-theme);
     }
 }

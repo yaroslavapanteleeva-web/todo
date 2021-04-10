@@ -11,11 +11,10 @@
         margin-top: 48px;
     }
     &__tasks {
-        display: none;
         margin-top: 24px;
-        background: #FFFFFF;
-        box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
         border-radius: 5px;
+        background: var(--background-task);
+        box-shadow: 0px 35px 50px -15px var(--color-box-shadow);
     }
     &__footer {
         margin-top: 50px;
@@ -24,6 +23,6 @@
         line-height: 14px;
         text-align: center;
         letter-spacing: -0.2px;
-        color: #9495A5;
+        color: var(--color-text-info);
     }
 }

@@ -1,0 +1,78 @@
+.task {
+    position: relative;
+    min-height: 64px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--color-border-task);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: var(--background-task);
+    &:last-child {
+        border-bottom: none;
+    }
+    &__btn_delete {
+        position: absolute;
+        right: 24px;
+        width: 24px;
+        height: 24px;
+        border: none;
+        outline: none;
+        background-color: var(--background-task);
+        cursor: pointer;
+        display: none;
+        color: var(--color-btn-delete);
+    }
+    &:hover &__btn_delete {
+        display: block;
+    }
+}
+
+.tasks {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.tasks-info {
+    background-color: var(--background-task);
+    border-top: 1px solid var(--color-border-task);
+    min-height: 50px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: .6fr 1.5fr .8fr;
+    align-items: center;
+    column-gap: 56px;
+    &__count {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: -0.194444px;
+        color: var(--color-text-info);
+    }
+    &__filter {
+       justify-self: end; 
+    }
+    &__btn {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: var(--background-task);
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: -0.2px;
+        color: var(--color-text-info);
+        margin-right: 18px;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            color: var(--color-text-info-hover);
+        }
+        &_active {
+            color: #3A7CFD;
+        }
+        &_clear {
+            font-weight: 400;
+        }
+    }
+}
