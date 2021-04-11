@@ -7,6 +7,13 @@
     border-radius: 5px;
     display: flex;
     align-items: center;
+    &__label {
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: -0.25px;
+        color: var(--color-task);
+        display: none;
+    }
     &__input {
         width: 100%;
         font-weight: 400;

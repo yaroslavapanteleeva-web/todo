@@ -9,10 +9,6 @@
         letter-spacing: -0.25px;
         color: var(--color-task);
         cursor: pointer;
-        &_through {
-            text-decoration: line-through;
-            color: var(--color-text-through);
-        }
     }
     &__custom {
         position: relative;
@@ -36,6 +32,10 @@
             height: 22px;
             border-radius: 50%;
         }
+    }
+    &:checked + &__label {
+        text-decoration: line-through;
+        color: var(--color-text-through);
     }
     &:checked + &__label &__custom::before {
         width: 24px;

@@ -14,79 +14,17 @@
                     <button class="todo__btn btn btn_theme"></button>
                 </div>
                 <div class="todo__body">
-                    <form class="new-todo">
+                    <form id="form-add" class="new-todo">
                         <input type="checkbox" id="task-disabled" class="new-todo__checkbox checkbox" disabled>
-                        <label class="new-todo__label checkbox__label" for="task-disabled">
+                        <label class="new-todo__label" for="task-disabled">
                             <span class="checkbox__custom"></span>
                         </label>
                         <input type="text" placeholder="Create a new todo…" class="new-todo__input">
                     </form>
                     <div class="todo__tasks">
-                        <div class="tasks">
-                            <div class="task">
-                                <input type="checkbox" id="task-1" class="task__checkbox checkbox" checked>
-                                <label class="task__label checkbox__label checkbox__label_through" for="task-1">
-                                    <span class="checkbox__custom"></span>
-                                    Complete online JavaScript course
-                                </label>
-                                <button class="task__btn_delete">
-                                    <img src="assets/img/delete.svg" alt="btn-delete">
-                                </button>
-                            </div>
-                            <div class="task">
-                                <input type="checkbox" id="task-2" class="task__checkbox checkbox">
-                                <label class="task__label checkbox__label" for="task-2">
-                                    <span class="checkbox__custom"></span>
-                                    Jog around the park 3x
-                                    <span class="checkbox__btn_delete"></span>
-                                </label>
-                                <button class="task__btn_delete">
-                                    <img src="assets/img/delete.svg" alt="btn-delete">
-                                </button>
-                            </div>
-                            <div class="task">
-                                <input type="checkbox" id="task-3" class="task__checkbox checkbox">
-                                <label class="task__label checkbox__label" for="task-3">
-                                    <span class="checkbox__custom"></span>
-                                    10 minutes meditation
-                                </label>
-                                <button class="task__btn_delete">
-                                    <img src="assets/img/delete.svg" alt="btn-delete">
-                                </button>
-                            </div>
-                            <div class="task">
-                                <input type="checkbox" id="task-4" class="task__checkbox checkbox">
-                                <label class="task__label checkbox__label" for="task-4">
-                                    <span class="checkbox__custom"></span>
-                                    Read for 1 hour
-                                </label>
-                                <button class="task__btn_delete">
-                                    <img src="assets/img/delete.svg" alt="btn-delete">
-                                </button>
-                            </div>
-                            <div class="task">
-                                <input type="checkbox" id="task-5" class="task__checkbox checkbox">
-                                <label class="task__label checkbox__label" for="task-5">
-                                    <span class="checkbox__custom"></span>
-                                    Pick up groceries
-                                </label>
-                                <button class="task__btn_delete">
-                                    <img src="assets/img/delete.svg" alt="btn-delete">
-                                </button>
-                            </div>
-                            <div class="task">
-                                <input type="checkbox" id="task-6" class="task__checkbox checkbox">
-                                <label class="task__label checkbox__label" for="task-6">
-                                    <span class="checkbox__custom"></span>
-                                    Complete Todo App on Frontend Mentor
-                                </label>
-                                <button class="task__btn_delete">
-                                    <img src="assets/img/delete.svg" alt="btn-delete">
-                                </button>
-                            </div>
-                        </div>
+                        <div class="tasks"></div>
                         <div class="tasks-info">
-                            <span id="count-task" class="tasks-info__count">5 items left</span>
+                            <span class="tasks-info__count"><span class="count">5</span> items left</span>
                             <div class="tasks-info__filter">
                                 <button class="tasks-info__btn tasks-info__btn_active">All</button>
                                 <button class="tasks-info__btn">Active</button>
