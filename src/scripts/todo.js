@@ -5,23 +5,50 @@ window.addEventListener('DOMContentLoaded', () => {
         $todo = document.querySelector('.tasks'),
         $countTaskActive = document.querySelector('.count');
 
+    const $parentBtns = document.querySelector('.tasks-info__filter'),
+        $btns = document.querySelectorAll('.tasks-info__btn'),
+        $btnClearCompletedTasks = document.querySelector('[data-btn="clear-completed-tasks"]'),
+        $btnAllTasks = $parentBtns.querySelector('[data-btn="all-tasks"]');
+        $btnActiveTasks = $parentBtns.querySelector('[data-btn="active-tasks"]');
+
     let tasks = [];
+    let arrTasksActive = [];
+    let arrTasksCompleted = [];
 
     if (localStorage.getItem('todo')) {
         tasks = JSON.parse(localStorage.getItem('todo'));
-        displayTasks();
+        displayTasks(tasks);
     }
-
-    /* let tasksActive = JSON.parse(localStorage.getItem('todo'));
-    tasksActive.forEach(task => {
-        console.log(task.checked);
-    }) */
 
     $inputAddTask.addEventListener('focus', () => {
         $labelAddTask.style.display = 'block';
     })
     $inputAddTask.addEventListener('blur', () => {
         $labelAddTask.style.display = 'none';
+    })
+
+    $parentBtns.addEventListener('click', (e) => {
+        const btnTarget = e.target.dataset.btn;
+        
+        switch(btnTarget) {
+            case 'active-tasks':
+                arrTasksActive = tasks.filter(item => item.checked === false);
+                displayTasks(arrTasksActive);
+                break;
+            case 'all-tasks':
+                displayTasks(tasks);
+                break;
+            case 'completed-tasks':
+                arrTasksCompleted = tasks.filter(item => item.checked === true);
+                displayTasks(arrTasksCompleted);
+                break;
+        }
+    })
+
+    $btnClearCompletedTasks.addEventListener('click', () => {
+        tasks = JSON.parse(localStorage.getItem('todo')).filter(item => item.checked === false);
+        localStorage.setItem('todo', JSON.stringify(tasks));
+        displayTasks(tasks);
     })
 
     $formAddTodo.addEventListener('submit', (e) => {
@@ -32,16 +59,21 @@ window.addEventListener('DOMContentLoaded', () => {
                 checked: false
             }
             tasks.push(newTask);
-            displayTasks();
+            displayTasks(tasks);
             localStorage.setItem('todo', JSON.stringify(tasks));
+
+            $btns.forEach(btn => {
+                btn.classList.remove('tasks-info__btn_active');
+            })
+            $btnAllTasks.classList.add('tasks-info__btn_active');
+            
             $formAddTodo.reset();
         }
         
     });
 
-    function displayTasks() {
+    function displayTasks(tasks) {
         let displayTask = '';
-
         if (tasks.length === 0) {
             $todo.innerHTML = '';
         } else {
@@ -59,19 +91,20 @@ window.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
                 $todo.innerHTML = displayTask;
-    
+                arrTasksActive = tasks.filter(item => item.checked === false);
             })
+            $countTaskActive.textContent = arrTasksActive.length;
         }
+        
     }
 
     $todo.addEventListener('click', (e) => {
         if (e.target.dataset.index) {
             let index = +e.target.dataset.index;
-            console.log(index);
             tasks = JSON.parse(localStorage.getItem('todo'));
             tasks.splice(index, 1);
             localStorage.setItem('todo', JSON.stringify(tasks));
-            displayTasks();
+            displayTasks(tasks);
             
         }
         if (e.target.getAttribute('id')) {
@@ -83,9 +116,20 @@ window.addEventListener('DOMContentLoaded', () => {
                 if (item.task === valueLabel) {
                     item.checked = !item.checked;
                     localStorage.setItem('todo', JSON.stringify(tasks));
+
+                    arrTasksActive = tasks.filter(item => item.checked === false);
                 }
+                
             })
+            $countTaskActive.textContent = arrTasksActive.length;
         }
+
+        /* if ($btnActiveTasks.classList.contains('tasks-info__btn_active')) {
+            tasks = JSON.parse(localStorage.getItem('todo')).filter(item => item.checked === false);
+
+            console.log(tasks);
+        } */
+       
     })
 
 
