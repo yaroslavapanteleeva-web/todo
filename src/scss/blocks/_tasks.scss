@@ -49,7 +49,10 @@
         color: var(--color-text-info);
     }
     &__filter {
-       justify-self: end; 
+       justify-self: end;
+       &_media {
+           display: none;
+       }
     }
     &__btn {
         border: none;
