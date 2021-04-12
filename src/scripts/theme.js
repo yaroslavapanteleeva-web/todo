@@ -2,14 +2,16 @@ window.addEventListener('DOMContentLoaded', () => {
     const $btnTheme = document.querySelector('.btn_theme');
     const $blockMain = document.querySelector('.main');
 
+    if (localStorage.getItem('theme')) {
+        initialState(localStorage.getItem('theme'));
+    } else {
+        initialState('light-theme');
+    }
+
     function initialState(themeName) {
         localStorage.setItem('theme', themeName);
         $blockMain.classList.add(themeName);
     }
-
-    initialState('light-theme');
-
-    /* localStorage.theme = 'dark-theme' ? initialState('dark-theme') : initialState('light-theme'); */
 
     function toggleTheme() {
         switch(localStorage.getItem('theme')) {
@@ -26,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     $btnTheme.addEventListener('click', () => {
         toggleTheme();
-        console.log(localStorage.theme);
+        
     });
     
 
