@@ -8,8 +8,9 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: 'JosefinSans', sans-serif;
+    height: 100%;
 }
 
 @import './blocks/main';

@@ -61,7 +61,6 @@
         align-items: center;
         justify-content: space-between;
         &__filter {
-            display: none;
             &_media {
                 margin-top: 16px;
                 display: flex;
@@ -79,6 +78,12 @@
                     color: var(--color-text-info-hover);
                 }
             }
+        }
+        &__count {
+            font-size: 12px;
+        }
+        &__btn_clear {
+            font-size: 12px;
         }
     }
     .todo {

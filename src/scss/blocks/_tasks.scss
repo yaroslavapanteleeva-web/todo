@@ -28,7 +28,7 @@
 }
 
 .tasks {
-    max-height: 500px;
+    max-height: 400px;
     overflow-y: auto;
 }
 
@@ -50,9 +50,6 @@
     }
     &__filter {
        justify-self: end;
-       &_media {
-           display: none;
-       }
     }
     &__btn {
         border: none;

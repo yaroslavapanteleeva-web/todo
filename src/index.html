@@ -15,7 +15,7 @@
                 </div>
                 <div class="todo__body">
                     <form id="form-add" class="new-todo">
-                        <input type="checkbox" id="task-disabled" class="new-todo__checkbox checkbox" disabled>
+                        <input type="checkbox" id="task-disabled" class="new-todo__checkbox checkbox" disabled required readonly>
                         <label class="new-todo__label" for="task-disabled">
                             <span class="checkbox__custom"></span>
                         </label>
@@ -25,18 +25,13 @@
                         <div class="tasks"></div>
                         <div class="tasks-info">
                             <span class="tasks-info__count"><span class="count">0</span> items left</span>
-                            <div class="tasks-info__filter">
+                            <div class="tasks-info__filter tasks-info__filter_media" data-da=".todo__body,575,last">
                                 <button class="tasks-info__btn tasks-info__btn_active" data-btn="all-tasks">All</button>
                                 <button class="tasks-info__btn" data-btn="active-tasks">Active</button>
                                 <button class="tasks-info__btn" data-btn="completed-tasks">Completed</button>
                             </div>
                             <button class="tasks-info__btn tasks-info__btn_clear" data-btn="clear-completed-tasks">Clear Completed</button>
                         </div>
-                    </div>
-                    <div class="tasks-info__filter tasks-info__filter_media">
-                        <button class="tasks-info__btn tasks-info__btn_active" data-btn="all-tasks">All</button>
-                        <button class="tasks-info__btn" data-btn="active-tasks">Active</button>
-                        <button class="tasks-info__btn" data-btn="completed-tasks">Completed</button>
                     </div>
                 </div>
                 <div class="todo__footer">
