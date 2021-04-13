@@ -53,6 +53,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     $formAddTodo.addEventListener('submit', (e) => {
         e.preventDefault();
+
         if ($inputAddTask.value.trim() != 0) {
             let newTask = {
                 task: $inputAddTask.value,
@@ -66,9 +67,22 @@ window.addEventListener('DOMContentLoaded', () => {
                 btn.classList.remove('tasks-info__btn_active');
             })
             $btnAllTasks.classList.add('tasks-info__btn_active');
+
+            const newArrTasks = JSON.parse(JSON.stringify(tasks));
+            const lastItemTasks = newArrTasks.pop();
+
+            newArrTasks.forEach(item => {
+                if(item.task === lastItemTasks.task) {
+                    alert('Такая задача существует');
+                    tasks.splice(-1, 1);
+                    localStorage.setItem('todo', JSON.stringify(tasks));
+                    displayTasks(tasks);
+                }
+            })
             
             $formAddTodo.reset();
         }
+        
         
     });
 
@@ -79,7 +93,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             tasks.forEach((item, index) => {
                 displayTask += `
-                    <div class="task">
+                    <div class="task" draggable="true">
                         <input type="checkbox" id="task-${index}" class="task__checkbox checkbox" ${item.checked ? 'checked' : ''}>
                         <label class="task__label checkbox__label" for="task-${index}">
                             <span class="checkbox__custom"></span>
@@ -95,6 +109,11 @@ window.addEventListener('DOMContentLoaded', () => {
             })
             $countTaskActive.textContent = arrTasksActive.length;
         }
+
+        if ($todo.innerHTML === '') {
+            $countTaskActive.textContent = 0;
+        }
+        
         
     }
 
@@ -123,12 +142,6 @@ window.addEventListener('DOMContentLoaded', () => {
             })
             $countTaskActive.textContent = arrTasksActive.length;
         }
-
-        /* if ($btnActiveTasks.classList.contains('tasks-info__btn_active')) {
-            tasks = JSON.parse(localStorage.getItem('todo')).filter(item => item.checked === false);
-
-            console.log(tasks);
-        } */
        
     })
 
