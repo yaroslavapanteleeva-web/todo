@@ -33,6 +33,14 @@ window.addEventListener('DOMContentLoaded', () => {
         switch(btnTarget) {
             case 'active-tasks':
                 arrTasksActive = tasks.filter(item => item.checked === false);
+               /*  arrTasksActive.forEach((item, index) => {
+                    $todo.addEventListener('click', (e) => {
+                        if (item.checked === true) {
+                            const removedArrTasksActive = arrTasksActive.splice(index, 1);
+                            displayTasks(removedArrTasksActive);
+                        }
+                    })
+                }) */
                 displayTasks(arrTasksActive);
                 break;
             case 'all-tasks':
@@ -53,7 +61,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     $formAddTodo.addEventListener('submit', (e) => {
         e.preventDefault();
-
         if ($inputAddTask.value.trim() != 0) {
             let newTask = {
                 task: $inputAddTask.value,
