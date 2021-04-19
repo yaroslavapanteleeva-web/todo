@@ -4,6 +4,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const webpack = require('webpack');
+
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
 
@@ -31,11 +33,33 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: ''
     },
+    node : {
+        global: true,
+        __filename: false,
+        __dirname: false,
+    },
     resolve: {
         extensions: ['.js'],
         alias: {
             '~': path.resolve(__dirname, 'src'),
             '~assets': path.resolve(__dirname, 'src/assets')
+            
+        },
+        fallback: {
+            "util": false,
+            "stream": false,
+            "path": false,
+            "assert": false,
+            "constants": false,
+            "os": false,
+            "buffer": false,
+            "http": false,
+            "https": false,
+            "vm": false,
+            "crypto": false,
+            "child_process": false,
+            "fs": false,
+            "worker_threads": false,
         }
     },
     devtool : isDev ? 'source-map' : false,
@@ -64,7 +88,10 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: filename('css')
-        })
+        }),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        }),
     ],
     module: {
         rules: [
