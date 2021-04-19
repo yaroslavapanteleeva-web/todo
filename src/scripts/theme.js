@@ -30,7 +30,4 @@ window.addEventListener('DOMContentLoaded', () => {
         toggleTheme();
         
     });
-    
-
-    
 });

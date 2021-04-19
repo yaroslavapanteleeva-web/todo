@@ -29,18 +29,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     $parentBtns.addEventListener('click', (e) => {
         const btnTarget = e.target.dataset.btn;
-        
+        let timerId;
         switch(btnTarget) {
             case 'active-tasks':
                 arrTasksActive = tasks.filter(item => item.checked === false);
-               /*  arrTasksActive.forEach((item, index) => {
-                    $todo.addEventListener('click', (e) => {
-                        if (item.checked === true) {
-                            const removedArrTasksActive = arrTasksActive.splice(index, 1);
-                            displayTasks(removedArrTasksActive);
-                        }
-                    })
-                }) */
                 displayTasks(arrTasksActive);
                 break;
             case 'all-tasks':
@@ -79,18 +71,15 @@ window.addEventListener('DOMContentLoaded', () => {
             const lastItemTasks = newArrTasks.pop();
 
             newArrTasks.forEach(item => {
-                if(item.task === lastItemTasks.task) {
+                if (item.task === lastItemTasks.task) {
                     alert('Такая задача существует');
                     tasks.splice(-1, 1);
                     localStorage.setItem('todo', JSON.stringify(tasks));
                     displayTasks(tasks);
                 }
             })
-            
             $formAddTodo.reset();
         }
-        
-        
     });
 
     function displayTasks(tasks) {
@@ -100,7 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             tasks.forEach((item, index) => {
                 displayTask += `
-                    <div class="task" draggable="true">
+                    <div class="task">
                         <input type="checkbox" id="task-${index}" class="task__checkbox checkbox" ${item.checked ? 'checked' : ''}>
                         <label class="task__label checkbox__label" for="task-${index}">
                             <span class="checkbox__custom"></span>
@@ -120,8 +109,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if ($todo.innerHTML === '') {
             $countTaskActive.textContent = 0;
         }
-        
-        
+
     }
 
     $todo.addEventListener('click', (e) => {
@@ -149,8 +137,5 @@ window.addEventListener('DOMContentLoaded', () => {
             })
             $countTaskActive.textContent = arrTasksActive.length;
         }
-       
     })
-
-
 });
